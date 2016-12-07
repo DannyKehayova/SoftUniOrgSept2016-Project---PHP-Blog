@@ -201,5 +201,10 @@ class Article
     {
         return $this->author;
     }
+
+    public function __construct()
+    {
+        $this->dateAdded = new \DateTime('now');
+    }
 }
 

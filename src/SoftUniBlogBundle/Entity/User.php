@@ -69,6 +69,11 @@ class User implements UserInterface
         return $this;
     }
 
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
+
 
     /**
      * Get id
