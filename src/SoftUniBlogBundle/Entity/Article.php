@@ -52,7 +52,7 @@ class Article
      */
     private function setSummary()
     {
-        $this->summary = substr($this->getContent(), 0, strlen($this->getContent()/2) . "...");
+        $this->summary = substr($this->getContent(), 0, 255) . "...";
     }
 
     /**
