@@ -70,7 +70,7 @@ class ArticleController extends Controller
 
         $form = $this->createForm(ArticleType::class, $article);
 
-        return $this->render('article/edit.htmli.twig',
+        return $this->render('article/edit.html.twig',
             array('article' => $article,
             'form' => $form->createView()));
     }
