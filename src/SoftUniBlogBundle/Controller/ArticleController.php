@@ -70,6 +70,16 @@ class ArticleController extends Controller
 
         $form = $this->createForm(ArticleType::class, $article);
 
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($article);
+            $em->flush();
+
+            return $this->redirectToRoute('article_view', array('id' => $article->getId()));
+        }
+
         return $this->render('article/edit.html.twig',
             array('article' => $article,
             'form' => $form->createView()));
