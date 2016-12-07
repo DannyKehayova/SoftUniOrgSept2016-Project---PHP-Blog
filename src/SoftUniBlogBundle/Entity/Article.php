@@ -48,24 +48,19 @@ class Article
     private $summary;
 
     /**
-     * @param string
+     * @var int
+     *
+     * @ORM\Column(name="authorId", type="integer")
      */
-    private function setSummary()
-    {
-        $this->summary = substr($this->getContent(), 0, 255) . "...";
-    }
+    private $authorId;
 
     /**
-     * @return string
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="SoftUniBlogBundle\Entity\User", inversedBy="articles")
+     * @ORM\JoinColumn(name="authorId", referencedColumnName="id")
      */
-    public function getSummary()
-    {
-        if($this->summary === null)
-        {
-            $this->setSummary();
-        }
-        return $this->summary;
-    }
+    private $author;
 
 
     /**
@@ -148,6 +143,63 @@ class Article
     public function getDateAdded()
     {
         return $this->dateAdded;
+    }
+
+    /**
+     * @param string
+     */
+    private function setSummary()
+    {
+        $this->summary = substr($this->getContent(), 0, 255) . "...";
+    }
+
+    /**
+     * @return string
+     */
+    public function getSummary()
+    {
+        if($this->summary === null)
+        {
+            $this->setSummary();
+        }
+        return $this->summary;
+    }
+
+    /**
+     * @param integer $authorId
+     * @return Article
+     */
+    public function setAuthorId($authorId)
+    {
+        $this->authorId = $authorId;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAuthorId()
+    {
+        return $this->authorId;
+    }
+
+    /**
+     * @param \SoftUniBlogBundle\Entity\User $author
+     *
+     * @return \SoftUniBlogBundle\Entity\Article
+     */
+    public function setAuthor(User $author = null)
+    {
+        $this->author = $author;
+        return $this;
+    }
+
+    /**
+     * @return \SoftUniBlogBundle\Entity\User
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }
 
