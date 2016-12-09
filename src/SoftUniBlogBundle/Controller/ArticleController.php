@@ -68,6 +68,13 @@ class ArticleController extends Controller
             return $this->redirectToRoute("blog_index");
         }
 
+        $currentUser = $this->getUser();
+
+        if (!$currentUser->isAuthor($article) && !$currentUser->isAdmin())
+        {
+            return $this->redirectToRoute("blog_index");
+        }
+
         $form = $this->createForm(ArticleType::class, $article);
 
         $form->handleRequest($request);
@@ -98,6 +105,13 @@ class ArticleController extends Controller
         $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
 
         if ($article === null){
+            return $this->redirectToRoute("blog_index");
+        }
+
+        $currentUser = $this->getUser();
+
+        if (!$currentUser->isAuthor($article) && !$currentUser->isAdmin())
+        {
             return $this->redirectToRoute("blog_index");
         }
 
