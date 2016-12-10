@@ -25,44 +25,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CategoryController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SoftUniBlogBundle/Controller/Admin/CategoryController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="88" column="48" selection-start-line="88" selection-start-column="48" selection-end-line="88" selection-end-column="48" />
-              <folding>
-                <element signature="e#52#111#0#PHP" expanded="true" />
-                <element signature="e#736#767#0#PHP" expanded="true" />
-                <element signature="e#1504#1537#0#PHP" expanded="true" />
-                <element signature="e#2352#2383#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="delete.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/category/delete.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding>
-                <marker date="1481369775386" expanded="true" signature="12:26" ph="base" />
-                <marker date="1481369775386" expanded="true" signature="32:1192" ph="{% block main ...%}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/category/list.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Tag.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SoftUniBlogBundle/Entity/Tag.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -119,7 +81,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Article.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Article.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SoftUniBlogBundle/Entity/Article.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
@@ -131,32 +93,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SoftUniBlogBundle/Entity/User.php">
+      <file leaf-file-name="view.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/article/view.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="270" column="21" selection-start-line="270" selection-start-column="21" selection-end-line="270" selection-end-column="21" />
+            <state relative-caret-position="352">
+              <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
               <folding>
-                <element signature="e#1942#1993#0#PHP" expanded="false" />
-                <element signature="e#1998#2059#0#PHP" expanded="false" />
-                <element signature="e#2065#2155#0#PHP" expanded="false" />
-                <element signature="e#2160#2258#0#PHP" expanded="false" />
-                <element signature="e#2264#2321#0#PHP" expanded="false" />
-                <element signature="e#2326#2393#0#PHP" expanded="false" />
-                <element signature="e#2399#2495#0#PHP" expanded="false" />
-                <element signature="e#2500#2610#0#PHP" expanded="false" />
-                <element signature="e#2616#2676#0#PHP" expanded="false" />
-                <element signature="e#2681#2754#0#PHP" expanded="false" />
-                <element signature="e#2760#2856#0#PHP" expanded="false" />
-                <element signature="e#2861#2971#0#PHP" expanded="false" />
-                <element signature="e#2977#3037#0#PHP" expanded="false" />
-                <element signature="e#3042#3115#0#PHP" expanded="false" />
-                <element signature="e#3121#3530#0#PHP" expanded="false" />
-                <element signature="e#4327#4535#0#PHP" expanded="false" />
-                <element signature="e#4540#4598#0#PHP" expanded="false" />
-                <element signature="e#4604#4716#0#PHP" expanded="false" />
-                <element signature="e#4797#4993#0#PHP" expanded="false" />
-                <element signature="e#4998#5098#0#PHP" expanded="false" />
+                <element signature="e#722#740#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/article/list.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+              <folding>
+                <element signature="e#12#26#0#Twig" expanded="true" />
+                <element signature="e#601#619#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TagController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SoftUniBlogBundle/Controller/TagController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+              <folding>
+                <element signature="e#46#105#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="articles.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/tags/articles.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="29">
+              <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+              <folding>
+                <element signature="e#12#26#0#Twig" expanded="true" />
+                <element signature="e#1039#1046#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -174,8 +155,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Resources/views/default/_flash_messages.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/SecurityController.php" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/form/fields.html.twig" />
@@ -196,7 +175,6 @@
         <option value="$PROJECT_DIR$/src/SoftUniBlogBundle/Entity/Role.php" />
         <option value="$PROJECT_DIR$/src/SoftUniBlogBundle/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/user/register.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/article/view.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/user/list.html" />
         <option value="$PROJECT_DIR$/src/SoftUniBlogBundle/Form/UserEditType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/user/edit.html.twig" />
@@ -213,7 +191,6 @@
         <option value="$PROJECT_DIR$/src/SoftUniBlogBundle/Form/CategoryType.php" />
         <option value="$PROJECT_DIR$/src/SoftUniBlogBundle/Form/ArticleType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/category/create.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/article/list.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/blog/index.html.twig" />
         <option value="$PROJECT_DIR$/src/SoftUniBlogBundle/Controller/HomeController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/category/edit.html.twig" />
@@ -225,6 +202,10 @@
         <option value="$PROJECT_DIR$/app/Resources/views/article/delete.html.twig" />
         <option value="$PROJECT_DIR$/src/SoftUniBlogBundle/Controller/ArticleController.php" />
         <option value="$PROJECT_DIR$/src/SoftUniBlogBundle/Entity/Article.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/article/view.html.twig" />
+        <option value="$PROJECT_DIR$/src/SoftUniBlogBundle/Controller/TagController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/article/list.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/tags/articles.html.twig" />
       </list>
     </option>
   </component>
@@ -533,6 +514,32 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="tags" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project---PHP-Blog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project---PHP-Blog" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="blog" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -743,12 +750,12 @@
       <workItem from="1481303610689" duration="1907000" />
       <workItem from="1481308185683" duration="7836000" />
       <workItem from="1481319218212" duration="1192000" />
-      <workItem from="1481360526414" duration="10920000" />
+      <workItem from="1481360526414" duration="11404000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73135000" />
+    <option name="totallyTimeSpent" value="73619000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
@@ -800,20 +807,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/SoftUniBlogBundle/SoftUniBlogBundle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing_dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -933,14 +926,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/article/view.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="22" column="99" selection-start-line="22" selection-start-column="99" selection-end-line="22" selection-end-column="99" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/user/delete.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -1027,18 +1012,6 @@
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <element signature="e#12#26#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/article/list.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="e#769#776#0#HTML" expanded="true" />
-            <marker date="1481369087599" expanded="true" signature="12:26" ph="base" />
-            <marker date="1481369087599" expanded="true" signature="32:941" ph="{% block main ...%}" />
           </folding>
         </state>
       </provider>
@@ -1193,6 +1166,48 @@
           <caret line="279" column="5" selection-start-line="279" selection-start-column="5" selection-end-line="279" selection-end-column="5" />
           <folding>
             <element signature="e#44#92#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SoftUniBlogBundle/Controller/TagController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+          <folding>
+            <element signature="e#46#105#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/article/view.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+          <folding>
+            <element signature="e#722#740#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/article/list.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+            <element signature="e#601#619#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/tags/articles.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+            <element signature="e#1039#1046#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

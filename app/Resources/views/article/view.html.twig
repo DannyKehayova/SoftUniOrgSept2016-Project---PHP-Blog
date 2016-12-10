@@ -19,10 +19,15 @@
                     </small>
 
                     <footer>
+                        <div class="pull-left">
+                            {% for tag in article.tags %}
+                                <a class="btn btn-default btn-xs" href="{{ path('articles_with_tags', {'name': tag.name}) }}">{{ tag }}</a>
+                            {% endfor %}
+                        </div>
                         <div class="pull-right">
-                            {% if app.getUser() and (app.getUser().isAuthor(article) or app.getUser().isAdmin()) %}
-                            <a class="btn btn-success btn-xs" href="{{ path('article_edit', {'id': article.id}) }}">Edit</a>
-                            <a class="btn btn-danger btn-xs" href="{{ path('article_delete', {'id': article.id}) }}">Delete</a>
+                            {% if app.getUser() and (article.isAuthor(app.getUser()) or app.getUser().isAdmin()) %}
+                                <a class="btn btn-primary btn-xs" href="{{ path('article_edit', {'id': article.id}) }}">Edit</a>
+                                <a class="btn btn-danger btn-xs" href="{{ path('article_delete', {'id':article.id}) }}">Delete</a>
                             {% endif %}
                             <a class="btn btn-default btn-xs" href="{{ path('blog_index') }}">back &raquo;</a>
                         </div>

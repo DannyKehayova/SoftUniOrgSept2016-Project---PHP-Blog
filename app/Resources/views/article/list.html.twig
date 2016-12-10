@@ -13,6 +13,12 @@
                     <p>
                         {{ article.summary }}
                     </p>
+                    <p>
+                        {% for tag in article.tags %}
+                            <a class="btn btn-default btn-xs"
+                               href="{{ path('articles_with_tags', {'name': tag.name}) }}">{{ tag.name }}</a>
+                        {% endfor %}
+                    </p>
 
                     <small class="author">
                         {{ article.author }}
