@@ -65,33 +65,32 @@ class ArticleController extends Controller
     public function editArticle($id, Request $request)
     {
         $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
-
-        if ($article === null){
-            return $this->redirectToRoute("blog_index");
+        if ($article === null) {
+            $this->redirectToRoute("blog_index");
         }
-
         $currentUser = $this->getUser();
-
-        if (!$currentUser->isAuthor($article) && !$currentUser->isAdmin())
-        {
-            return $this->redirectToRoute("blog_index");
+        if (!$article->isAuthor($currentUser) && !$currentUser->isAdmin()) {
+            return $this->redirectToRoute('blog_index');
         }
-
         $form = $this->createForm(ArticleType::class, $article);
-
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $tagsString = $request->get('tags');
+            $tags = $this->getTags($em, $tagsString);
+            $article->setTags($tags);
             $em->persist($article);
             $em->flush();
-
-            return $this->redirectToRoute('article_view', array('id' => $article->getId()));
+            return $this->redirectToRoute('article_view', ['id' => $article->getId()]);
         }
-
-        return $this->render('article/edit.html.twig',
-            array('article' => $article,
-            'form' => $form->createView()));
+        $tags = $article->getTags();
+        $tagsToArray = $tags->toArray();
+        $tagsString = implode(", ", $tagsToArray);
+        return $this->render('article/edit.html.twig', array(
+            'article' => $article,
+            'tags' => $tagsString,
+            'form' => $form->createView()
+        ));
     }
 
     /**
@@ -104,32 +103,31 @@ class ArticleController extends Controller
      */
     public function deleteArticle($id, Request $request)
     {
-        $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
-
-        if ($article === null){
-            return $this->redirectToRoute("blog_index");
+        $repository = $this->getDoctrine()->getRepository(Article::class);
+        $article = $repository->find($id);
+        if ($article === null) {
+            $this->redirectToRoute("blog_index");
         }
-
         $currentUser = $this->getUser();
-
-        if (!$currentUser->isAuthor($article) && !$currentUser->isAdmin())
-        {
-            return $this->redirectToRoute("blog_index");
+        if (!$article->isAuthor($currentUser) && !$currentUser->isAdmin()) {
+            return $this->redirectToRoute('blog_index');
         }
-
         $form = $this->createForm(ArticleType::class, $article);
-
         $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($article);
             $em->flush();
-
             return $this->redirectToRoute('blog_index');
         }
-
-        return $this->render('article/delete.html.twig', array('article' => $article, 'form' => $form->createView()));
+        $tags = $article->getTags();
+        $tagsToArray = $tags->toArray();
+        $tagsString = implode(", ", $tagsToArray);
+        return $this->render('article/delete.html.twig', array(
+            'article' => $article,
+            'tags' => $tagsString,
+            'form' => $form->createView()
+        ));
     }
     /**
      * @param $em EntityManager

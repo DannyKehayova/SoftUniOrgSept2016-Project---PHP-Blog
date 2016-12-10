@@ -271,6 +271,13 @@ class Article
     {
         $this->dateAdded = new \DateTime('now');
     }
+    public function isAuthor(User $authorCandidate = null)
+    {
+        if ($authorCandidate == null) {
+            return false;
+        }
+        return ($this->getAuthorId() == $authorCandidate->getId());
+    }
 
 }
 
