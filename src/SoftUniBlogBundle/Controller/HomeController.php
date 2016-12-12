@@ -20,7 +20,8 @@ class HomeController extends Controller
     public function indexAction()
     {
         $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
-        return $this->render('blog/index.html.twig', ['categories' => $categories]);
+        $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
+        return $this->render('blog/index.html.twig', ['categories' => $categories, 'articles' => $articles]);
     }
     /**
      * @Route("/category/{id}", name="category_articles")

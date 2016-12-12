@@ -33,6 +33,7 @@ class ArticleController extends Controller
             $tags = $this->getTags($em, $tagsString);
             $article->setAuthor($this->getUser());
             $article->setTags($tags);
+            $article->setCount(0);
             $em->persist($article);
             $em->flush();
             return $this->redirectToRoute('blog_index');
@@ -49,6 +50,13 @@ class ArticleController extends Controller
     public function viewArticle($id)
     {
         $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
+
+        $currentCount = $article->getCount();
+        $currentCount++;
+        $em = $this->getDoctrine()->getManager();
+        $article->setCount($currentCount);
+        $em->persist($article);
+        $em->flush();
 
         return $this->render('article/view.html.twig', ['article' => $article]);
     }

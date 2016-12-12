@@ -1,7 +1,105 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-<div class="container body-content">
+
+    <div id="wrapper">
+
+
+        <!-- Sidebar -->
+
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <!--<a href="#">-->
+                    <p>Categories</p>
+                    <!--</a>-->
+                </li>
+                {% for category in categories %}
+                    <li>
+                        <a href="{{ path('category_articles', {'id': category.id}) }}">
+                            {{ category.name }} ({{ category.articles.count }})
+                        </a>
+                    </li>
+                {% endfor %}
+
+<!--
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Shortcuts</a>
+                </li>
+                <li>
+                    <a href="#">Overview</a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+-->
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <ul class="breadcrumb">
+                    <li class="active"><h2>Most popular</h2></li>
+                </ul>
+                <div class="row">
+                    {% for article in articles %}
+                        <div class="col-md-6">
+                            <article>
+                                <header>
+                                    <h2>{{ article.title }}</h2>
+                                </header>
+
+                                <p>
+                                    {{ article.summary }}
+                                </p>
+                                <p>
+                        <span class="label label-info">
+                            Author: {{ article.author }}
+                        </span>
+                                </p>
+
+                                <p>
+                        <span class="label label-info">
+                        Count of Readers: {{ article.count }}
+                    </span>
+                                </p>
+                                <p>
+                                    {% for tag in article.tags %}
+                                        <a class="btn btn-default btn-xs"
+                                           href="{{ path('articles_with_tags', {'name': tag.name}) }}">{{ tag.name }}</a>
+                                    {% endfor %}
+                                </p>
+                                <footer>
+                                    <div class="pull-right">
+                                        <a class="btn btn-default btn-xs"
+                                           href="{{ path('article_view', {'id': article.id}) }}">Read more &raquo;</a>
+                                    </div>
+                                </footer>
+                            </article>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+<!--
+    <div class="container body-content">
     <div class="row">
         {% for category in categories %}
         <div class="col-md-6">
@@ -15,5 +113,6 @@
         </div>
         {% endfor %}
     </div>
-</div>
+</div> -->
+
 {% endblock %}

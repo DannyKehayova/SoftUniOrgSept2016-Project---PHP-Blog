@@ -14,16 +14,22 @@
                         {{ article.summary }}
                     </p>
                     <p>
+                        <span class="label label-info">
+                            Author: {{ article.author }}
+                        </span>
+                    </p>
+
+                    <p>
+                        <span class="label label-info">
+                        Count of Readers: {{ article.count }}
+                    </span>
+                    </p>
+                    <p>
                         {% for tag in article.tags %}
                             <a class="btn btn-default btn-xs"
                                href="{{ path('articles_with_tags', {'name': tag.name}) }}">{{ tag.name }}</a>
                         {% endfor %}
                     </p>
-
-                    <small class="author">
-                        {{ article.author }}
-                    </small>
-
                     <footer>
                         <div class="pull-right">
                             <a class="btn btn-default btn-xs"

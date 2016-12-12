@@ -76,6 +76,7 @@ class Article
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
     private $category;
+
     /**
      * @var ArrayCollection
      *
@@ -85,6 +86,30 @@ class Article
      *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")})
      */
     private $tags;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="count", type="integer")
+     */
+    private $count;
+
+    /**
+     * @return int
+     */
+    public function getCount(): int
+    {
+        return $this->count;
+    }
+
+    /**
+     * @param int $count
+     */
+    public function setCount(int $count)
+    {
+        $this->count = $count;
+    }
+
     /**
      * @return int
      */
@@ -92,6 +117,7 @@ class Article
     {
         return $this->categoryId;
     }
+
     /**
      * @param int $categoryId
      */
@@ -99,6 +125,7 @@ class Article
     {
         $this->categoryId = $categoryId;
     }
+
     /**
      * @return \SoftUniBlogBundle\Entity\Category
      */
@@ -106,6 +133,7 @@ class Article
     {
         return $this->category;
     }
+
     /**
      * @param \SoftUniBlogBundle\Entity\Category $category
      */

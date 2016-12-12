@@ -14,10 +14,17 @@
                         {{ article.content }}
                     </p>
 
-                    <small class="author">
-                        {{ article.author }}
-                    </small>
+                    <p>
+                        <span class="label label-info">
+                            Author: {{ article.author }}
+                        </span>
+                    </p>
 
+                    <p>
+                        <span class="label label-info">
+                        Count of Readers: {{ article.count }}
+                    </span>
+                    </p>
                     <footer>
                         <div class="pull-left">
                             {% for tag in article.tags %}
