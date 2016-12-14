@@ -14,6 +14,13 @@ use Symfony\Component\HttpFoundation\Response;
 class HomeController extends Controller
 {
     /**
+     * @Route("/contact", name="blog_contact")
+     */
+    public function ContactUs()
+{
+    return $this->render('blog/contact.html.twig');
+}
+    /**
      * @Route("/", name="blog_index")
      * @Method("GET")
      */
