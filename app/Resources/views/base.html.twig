@@ -21,7 +21,7 @@
 
 {% block header %}
     <header>
-        <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar navbar-default navbar-static-top" role="navigation" style="background-color: maroon">
             <div class="container">
                 <div class="navbar-header">
 
@@ -61,6 +61,7 @@
                                     Logout
                                 </a>
                             </li>
+                            <li> <a href="{{ path('blog_contact') }}"> Contact us </a> </li>
                         {% else %}
                             <li>
                                 <a href="{{ path('user_register') }}">
@@ -72,6 +73,7 @@
                                     LOGIN
                                 </a>
                             </li>
+                            <li> <a href="{{ path('blog_contact') }}"> Contact us </a> </li>
                         {% endif %}
                     </ul>
                 </div>
