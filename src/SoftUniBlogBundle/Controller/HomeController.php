@@ -20,8 +20,26 @@ class HomeController extends Controller
     public function indexAction()
     {
         $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
-        $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
-        return $this->render('blog/index.html.twig', ['categories' => $categories, 'articles' => $articles]);
+        /** $articles $articles = $this->getDoctrine()->getRepository(Article::class)->findAll(); */
+        $articlesSort = $this->getDoctrine()->getRepository(Article::class)->findBy([], ['count' => 'DESC']);
+        if (count($articlesSort) <= 4){
+            return $this->render('blog/index.html.twig', ['categories' => $categories, 'articles' => $articlesSort]);
+        }
+
+        else{
+            $countArticles = 0;
+            $trimArray = array();
+            foreach ($articlesSort as $articl){
+                if ($countArticles < 4){
+                    $trimArray[$countArticles] = $articl;
+                }
+                $countArticles++;
+            }
+            return $this->render('blog/index.html.twig', ['categories' => $categories, 'articles' => $trimArray]);
+        }
+        /** echo var_dump($articles); */
+        /** echo var_dump($articlesSort); */
+        return $this->render('blog/index.html.twig', ['categories' => $categories, 'articles' => $articlesSort]);
     }
     /**
      * @Route("/category/{id}", name="category_articles")

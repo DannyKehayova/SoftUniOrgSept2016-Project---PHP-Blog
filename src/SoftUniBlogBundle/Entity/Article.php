@@ -91,6 +91,7 @@ class Article
      * @var int
      *
      * @ORM\Column(name="count", type="integer")
+     *
      */
     private $count;
 
