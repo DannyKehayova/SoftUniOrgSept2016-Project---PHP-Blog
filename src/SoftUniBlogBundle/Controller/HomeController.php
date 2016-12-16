@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use SoftUniBlogBundle\Entity\Article;
 use SoftUniBlogBundle\Entity\Category;
+use SoftUniBlogBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -18,8 +19,12 @@ class HomeController extends Controller
      */
     public function ContactUs()
 {
+
     return $this->render('blog/contact.html.twig');
 }
+
+
+
     /**
      * @Route("/", name="blog_index")
      * @Method("GET")
@@ -29,6 +34,8 @@ class HomeController extends Controller
         $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
         /** $articles $articles = $this->getDoctrine()->getRepository(Article::class)->findAll(); */
         $articlesSort = $this->getDoctrine()->getRepository(Article::class)->findBy([], ['count' => 'DESC']);
+        $user=$this->getUser();
+
         if (count($articlesSort) <= 4){
             return $this->render('blog/index.html.twig', ['categories' => $categories, 'articles' => $articlesSort]);
         }
@@ -42,7 +49,7 @@ class HomeController extends Controller
                 }
                 $countArticles++;
             }
-            return $this->render('blog/index.html.twig', ['categories' => $categories, 'articles' => $trimArray]);
+            return $this->render('blog/index.html.twig', ['categories' => $categories, 'articles' => $trimArray, 'user'=>$user]);
         }
         /** echo var_dump($articles); */
         /** echo var_dump($articlesSort); */
