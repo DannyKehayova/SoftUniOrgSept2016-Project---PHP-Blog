@@ -91,9 +91,15 @@ class Article
      * @var int
      *
      * @ORM\Column(name="count", type="integer")
-     *
      */
     private $count;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="SoftUniBlogBundle\Entity\Comment", mappedBy="articletocomment")
+     */
+    private $comments;
 
     /**
      * @return int
@@ -299,6 +305,7 @@ class Article
     public function __construct()
     {
         $this->dateAdded = new \DateTime('now');
+        $this->comments = new ArrayCollection();
     }
     public function isAuthor(User $authorCandidate = null)
     {
@@ -307,6 +314,28 @@ class Article
         }
         return ($this->getAuthorId() == $authorCandidate->getId());
     }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param \SoftUniBlogBundle\Entity\Comment $comment
+     *
+     * @return Article
+     */
+    public function addComment(Comment $comment)
+    {
+        $this->comments[] = $comment;
+
+        return $this;
+    }
+
+
 
 }
 

@@ -7,8 +7,10 @@ use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use SoftUniBlogBundle\Entity\Article;
+use SoftUniBlogBundle\Entity\Comment;
 use SoftUniBlogBundle\Entity\Tag;
 use SoftUniBlogBundle\Form\ArticleType;
+use SoftUniBlogBundle\Form\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -44,12 +46,14 @@ class ArticleController extends Controller
 
     /**
      * @Route("/article/view/{id}", name="article_view")
+     *
      * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function viewArticle($id)
     {
         $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
+        $comments = $article->getComments();
 
         $currentCount = $article->getCount();
         $currentCount++;
@@ -58,7 +62,10 @@ class ArticleController extends Controller
         $em->persist($article);
         $em->flush();
 
-        return $this->render('article/view.html.twig', ['article' => $article]);
+        return $this->render('article/view.html.twig', array(
+            'article' => $article,
+            'comments' => $comments
+        ));
     }
 
     /**

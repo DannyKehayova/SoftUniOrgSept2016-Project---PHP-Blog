@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <div class="container body-content span=8 offset=2">
+        <div class="well">
+            <form class="form-horizontal" action="{{ path('comment_create', {id: article.id}) }}" method="POST">
+                <fieldset>
+                    <legend>New Comment</legend>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="comment_email">Email*</label>
+                        <div class="col-sm-4 ">
+                            <input type="text" class="form-control" id="comment_email" placeholder="Email"
+                                   name="comment[email]">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="comment_authorname">Name*</label>
+                        <div class="col-sm-4 ">
+                            <input type="text" class="form-control" id="comment_authorname" placeholder="Name"
+                                   name="comment[authorname]">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="comment_content">Comment</label>
+                        <div class="col-sm-6">
+                        <textarea class="form-control" rows="6" id="comment_content"
+                                  name="comment[content]"></textarea>
+                        </div>
+                    </div>
+
+                    {{ form_row(form._token) }}
+
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-4">
+
+                            <button type="submit" class="btn btn-success">Comment</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
