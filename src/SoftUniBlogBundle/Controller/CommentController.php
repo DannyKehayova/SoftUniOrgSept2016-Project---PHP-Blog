@@ -37,6 +37,16 @@ class CommentController extends Controller
             return $this->redirectToRoute('article_view', ['id' => $article->getId()]);
         }
 
+        $currentUser = $this->getUser();
+        if (!$currentUser || (!$article->isAuthor($currentUser) && !$currentUser->isAdmin())){
+            $currentCount = $article->getCount();
+            $currentCount--;
+            $em = $this->getDoctrine()->getManager();
+            $article->setCount($currentCount);
+            $em->persist($article);
+            $em->flush();
+        }
+
         return $this->render('comment/create.html.twig', array(
             'article' => $article,
             'form' => $form->createView()
