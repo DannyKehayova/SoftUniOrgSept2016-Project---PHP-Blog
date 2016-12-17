@@ -3,6 +3,7 @@
 namespace SoftUniBlogBundle\Controller\Admin;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use SoftUniBlogBundle\Entity\Article;
 use SoftUniBlogBundle\Entity\Role;
 use SoftUniBlogBundle\Entity\User;
 use SoftUniBlogBundle\Form\UserEditType;
@@ -76,6 +77,7 @@ public function listUsers(){
     public function deleteUser($id, Request $request)
     {
         $user = $this->getDoctrine()->getRepository(User::class)->find($id);
+        $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
         if ($user === null) {
             return $this->redirectToRoute('admin_users');
         }
@@ -83,6 +85,13 @@ public function listUsers(){
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            foreach ($articles as $article){
+                if ($article->getAuthorId() == $id){
+                    foreach ($article->getComments() as $comment){
+                        $em->remove($comment);
+                    }
+                }
+            }
             foreach ($user->getArticles() as $article) {
                 $em->remove($article);
             }

@@ -72,7 +72,7 @@
                             <td>
                                 {{ comment.content() }}
                                 {% if app.getUser() and app.getUser().isAdmin() %}
-                                    <a class="btn btn-danger btn-xs" href="#">Delete</a>
+                                    <a class="btn btn-danger btn-xs" href="{{ path('comment_delete', {'id':comment.id}) }}">Delete</a>
                                 {% endif %}
                             </td>
                         </tr>

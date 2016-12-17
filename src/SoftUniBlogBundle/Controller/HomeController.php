@@ -43,13 +43,13 @@ class HomeController extends Controller
         else{
             $countArticles = 0;
             $trimArray = array();
-            foreach ($articlesSort as $articl){
+            foreach ($articlesSort as $article){
                 if ($countArticles < 4){
-                    $trimArray[$countArticles] = $articl;
+                    $trimArray[$countArticles] = $article;
                 }
                 $countArticles++;
             }
-            return $this->render('blog/index.html.twig', ['categories' => $categories, 'articles' => $trimArray, 'user'=>$user]);
+            return $this->render('blog/index.html.twig', ['categories' => $categories, 'articles' => $trimArray]);
         }
         /** echo var_dump($articles); */
         /** echo var_dump($articlesSort); */

@@ -54,13 +54,17 @@ class ArticleController extends Controller
     {
         $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
         $comments = $article->getComments();
+        $currentUser = $this->getUser();
 
-        $currentCount = $article->getCount();
-        $currentCount++;
-        $em = $this->getDoctrine()->getManager();
-        $article->setCount($currentCount);
-        $em->persist($article);
-        $em->flush();
+        if (!$currentUser || (!$article->isAuthor($currentUser) && !$currentUser->isAdmin())){
+            $currentCount = $article->getCount();
+            $currentCount++;
+            $em = $this->getDoctrine()->getManager();
+            $article->setCount($currentCount);
+            $em->persist($article);
+            $em->flush();
+        }
+
 
         return $this->render('article/view.html.twig', array(
             'article' => $article,
@@ -131,6 +135,9 @@ class ArticleController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            foreach ($article->getComments() as $comment){
+                $em->remove($comment);
+            }
             $em->remove($article);
             $em->flush();
             return $this->redirectToRoute('blog_index');

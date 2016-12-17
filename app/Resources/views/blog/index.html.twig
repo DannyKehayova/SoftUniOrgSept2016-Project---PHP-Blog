@@ -10,8 +10,14 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 {% if app.user %}
-                <div><font color="#a9a9a9">Welcome, <a href="{{ path ('user_profile') }}"></font><font color="#6495ed">
-                {{ user.fullName }}</font></div>
+                    <div>
+                        <font color="#a9a9a9">
+                            Welcome,
+                        </font>
+                        <font color="#6495ed">
+                            <a href="{{ path ('user_profile') }}">{{ app.user.fullName }}</a>
+                        </font>
+                    </div>
                 {% endif %}
                 <li class="sidebar-brand">
                     <!--<a href="#">-->
