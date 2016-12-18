@@ -25,6 +25,13 @@
                         Count of Readers: {{ article.count }}
                     </span>
                     </p>
+
+                    <p>
+                        <span class="label label-info">
+                        Date: {{ article.dateAdded|date('d-m-Y') }}
+                    </span>
+                    </p>
+
                     <footer>
                         <div class="pull-left">
                             {% for tag in article.tags %}
@@ -62,15 +69,21 @@
                     <tr class="info">
                         <th>Name</th>
                         <th>Comment</th>
+                        <th>Date</th>
                     </tr>
                     </thead>
 
                     <tbody>
                     <tr>
                         <tr class="active">
-                            <td>{{ comment.authorname }}</td>
+                            <td>
+                                {{ comment.authorname }}
+                            </td>
                             <td>
                                 {{ comment.content() }}
+                            </td>
+                            <td>
+                                {{ article.dateAdded|date('d-m-Y H:i') }}
                                 {% if app.getUser() and app.getUser().isAdmin() %}
                                     <a class="btn btn-danger btn-xs" href="{{ path('comment_delete', {'id':comment.id}) }}">Delete</a>
                                 {% endif %}
